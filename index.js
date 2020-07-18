@@ -1,9 +1,29 @@
-module.exports = function c(strang) {
-    console.log(strang)
-  };
+// module.exports = 
+  class Pop {
+    hello() {
+        console.log('hello npm friends');
+    }
 
-var ok = function() {
-    console.log("this is another function")
+    pop(pop) {
+        console.log(pop);
+    }
+    shyaboi() {
+      console.log('Shyaboi!');
+  }
 }
 
-module.exports = ok
+class Ok extends Pop {
+ 
+
+    otherThing() {
+        console.log('i am another thing');
+    }
+}
+
+var pak = new Pop()
+var ok = new Ok()
+
+
+pak.pop('fdsgdg')
+ok.otherThing()
+pak.shyaboi()
