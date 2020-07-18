@@ -11,7 +11,8 @@
       console.log('Shyaboi!');
   }
 }
-module.exports = Pop
+var pop = new Pop
+module.exports = pop
 
 class Ok extends Pop {
   
