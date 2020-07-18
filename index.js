@@ -1,4 +1,4 @@
-module.exports = function eFunc(strang) {
+module.exports = function c(strang) {
     console.log(strang)
   };
 //   function eFunc(strang) {
