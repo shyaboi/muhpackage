@@ -1,4 +1,4 @@
-// module.exports = 
+module.exports = 
   class Pop {
     hello() {
         console.log('hello npm friends');
@@ -19,11 +19,3 @@ class Ok extends Pop {
         console.log('i am another thing');
     }
 }
-
-var pak = new Pop()
-var ok = new Ok()
-
-
-pak.pop('fdsgdg')
-ok.otherThing()
-pak.shyaboi()
