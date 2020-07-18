@@ -1,3 +1,8 @@
-module.exports = function eFunc() {
-    console.log('I made an npm package!')
+module.exports = function eFunc(strang) {
+    console.log(strang)
   };
+//   function eFunc(strang) {
+//     console.log(strang)
+//   };
+// var thing = 'busnass'
+//   eFunc(thing)
