@@ -13,13 +13,14 @@
 }
 module.exports = Pop
 
-// class Ok extends Pop {
- 
-
-//     otherThing() {
-//         console.log('i am another thing');
-//     }
-// }
+class Ok extends Pop {
+  
+  
+  otherThing() {
+    console.log('i am another thing');
+  }
+}
+module.exports = Ok
 
 // var pak = new Pop()
 // var ok = new Ok()
