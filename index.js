@@ -11,8 +11,7 @@
       console.log('Shyaboi!');
   }
 }
-var pop = new Pop
-module.exports = pop
+module.exports = Pop
 
 class Ok extends Pop {
   
@@ -21,7 +20,6 @@ class Ok extends Pop {
     console.log('i am another thing');
   }
 }
-module.exports = Ok
 
 // var pak = new Pop()
 // var ok = new Ok()
