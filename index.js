@@ -24,16 +24,21 @@ module.exports = Ok
 
 
 class Server extends Pop {
-  sitePop(){
+  sitePop(portNumber, content, index){
 
 
     const express = require('express')
+    var router = express.Router();
     const app = express()
-    const port = 3000
+    const port = portNumber
     
-    app.get('/', (req, res) => res.send('Hello World!'))
+    app.get('/', (req, res) => res.send(content))
+
+    router.get(["/", "//*"], function (req, res, next) {
+  res.sendFile(path.join(__dirname, index));
+});
     
-    app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+    app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
 
 
   }}
