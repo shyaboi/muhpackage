@@ -28,7 +28,12 @@ class Server extends Pop {
   // {
   //   port = portNumber
   // }
-  
+  newRoute(rt, dex){
+    app.get(rt, function (req, res, next) {
+      res.sendFile(path.join(__dirname, dex));
+  });
+}
+
   sitePop(pN, route, content, index){
     
     
