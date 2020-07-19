@@ -12,8 +12,6 @@ fs.writeFile(
     "./muhpackage/package.json",
     `
     {
-        "name": "My New Website!",
-        "version": "1.0.0",
         "description": "My new site made with simpleserver",
         "main": "server.js",
         "scripts": {
@@ -46,7 +44,7 @@ exec("cd muhpackage && npm i express", (error, data, getter) => {
 
 });
 
-exec("npm i muhpackage", (error, data, getter) => {
+exec("cd muhpackage && npm i muhpackage", (error, data, getter) => {
 	if(error){
 		console.log("error",error.message);
 		return;
