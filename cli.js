@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const { exec } = require('child_process');
 var path = require("path");
 const fs = require("fs");
 
