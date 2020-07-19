@@ -26,12 +26,12 @@ class Server extends Pop {
     route2="/index",
      route3="/dexy",
       index="../../views/index.html",
-       dexy="../../views/dexy.html",
-        dex="../../views/index2.html" ){
+      dex="../../views/index2.html",
+       dexy="../../views/dexy.html"
+        ){
     
     const express = require('express')
     var path = require('path');
-    var router = express.Router();
     const app = express()
     // var pNum = pN
     // var portNumber = process.env || pNum
