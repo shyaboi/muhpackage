@@ -52,6 +52,8 @@ class Server extends Pop {
     app.get(route, function (req, res, next) {
   res.sendFile(path.join(__dirname, index));
 });
+
+this.newRoute()
     
     app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
 
