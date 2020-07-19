@@ -43,8 +43,7 @@ fs.writeFile(
   console.log('stdout ', child.stdout);
   console.error('stderr ', child.stderr);
   
-  const { execSync2 } = require('child_process');
-const stdout2 = execSync2('npm i express');
+const stdout2 = execSync('npm i express');
 const { spawnSync2} = require('child_process');
 const child2 = spawnSync2('npm i express', );
 console.error('error', child2.error);
