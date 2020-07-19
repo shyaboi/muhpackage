@@ -35,8 +35,8 @@ class Server extends Pop {
     const express = require('express')
     var path = require('path');
     var router = express.Router();
-    const app = express()
-    const port = process.env || 1234
+    const app = express();
+    // const port = process.env || 1234;
     
     app.get("/", (req, res) => res.send(content))
 
@@ -44,7 +44,7 @@ class Server extends Pop {
   res.sendFile(path.join(__dirname, index));
 });
     
-    app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
+    app.listen(process.env || 1234, () => console.log(`App listening at http://localhost:${process.env || 1234}`))
 
 
   }}
