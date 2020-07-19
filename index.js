@@ -24,10 +24,10 @@ module.exports = Ok
 
 
 class Server extends Pop {
-  sitePort(port)
-  {
-    port = portNumber
-  }
+  // sitePort(port)
+  // {
+  //   port = portNumber
+  // }
   
   sitePop(portNumber, route, content, index){
     
