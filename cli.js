@@ -46,6 +46,19 @@ exec("cd muhpackage && npm i express", (error, data, getter) => {
 
 });
 
+exec("npm i muhpackage", (error, data, getter) => {
+	if(error){
+		console.log("error",error.message);
+		return;
+	}
+	if(getter){
+		console.log("data",data);
+		return;
+	}
+	console.log("data",data);
+
+});
+
 fs.writeFile(
     "./muhpackage/server.js",
     `var Muhpackage = require("muhpackage");
