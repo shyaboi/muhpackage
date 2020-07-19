@@ -44,7 +44,7 @@ class Server extends Pop {
   res.sendFile(path.join(__dirname, index));
 });
     
-    app.listen(process.env || 1234, () => console.log(`App listening at http://localhost:${process.env || 1234}`))
+    app.listen(process.env || 12345, () => console.log(`App listening at http://localhost:${process.env || 1234}`))
 
 
   }}
