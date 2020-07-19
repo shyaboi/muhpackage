@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const { exec } = require('child_process');
 var path = require("path");
 const fs = require("fs");
 
@@ -8,18 +7,15 @@ fs.mkdir("./muhpackage", { recursive: true }, (err) => {
   if (err) throw err;
 });
 
-exec('npm init', (err, stdout, stderr) => {
-    if (err) {
-      // node couldn't execute the command
-      return;
-    }
-  
-    // the *entire* stdout and stderr (buffered)
-    console.log(`stdout: ${stdout}`);
-    console.log(`stderr: ${stderr}`);
-  });
-
-
+const { execSync } = require('child_process');
+// stderr is sent to stdout of parent process
+// you can set options.stdio if you want it to go elsewhere
+const stdout = execSync('npm init -y');
+const { spawnSync} = require('child_process');
+const child = spawnSync('npm init -y', );
+console.error('error', child.error);
+console.log('stdout ', child.stdout);
+console.error('stderr ', child.stderr);
 
 
 fs.writeFile(
