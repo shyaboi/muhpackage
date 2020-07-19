@@ -38,16 +38,12 @@ fs.writeFile(
   // stderr is sent to stdout of parent process
   // you can set options.stdio if you want it to go elsewhere
   const stdout = execSync('cd muhpackage && npm init -y');
-  const child = spawnSync('cd muhpackage && npm init -y', );
   console.error('error', child.error);
   console.log('stdout ', child.stdout);
-  console.error('stderr ', child.stderr);
   
 const stdout2 = execSync('npm i express');
-const child2 = spawnSync('npm i express', );
-console.error('error', child2.error);
-console.log('stdout ', child2.stdout);
-console.error('stderr ', child2.stderr);
+console.error('error2', child2.error);
+console.log('stdout2 ', child2.stdout);
 
 
 fs.writeFile(
