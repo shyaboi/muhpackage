@@ -7,6 +7,33 @@ fs.mkdir("./muhpackage", { recursive: true }, (err) => {
   if (err) throw err;
 });
 
+
+fs.writeFile(
+    "./muhpackage/package.json",
+    `
+    {
+        "name": "muhpackage",
+        "version": "1.0.44",
+        "description": "This is muh npm package. It currently does a thing.",
+        "main": "index.js",
+        "scripts": {
+          "start": "node index.js",
+          "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "keywords": [
+          "many"
+        ],
+        "author": "Shyaboi",
+        "license": "ISC",
+        "dependencies": {
+          "express": "^4.17.1"
+        }
+      }`,
+    (err) => {
+      if (err) throw err;
+    }
+  );
+
 fs.writeFile(
     "./muhpackage/server.js",
     `
