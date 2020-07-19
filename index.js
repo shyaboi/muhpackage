@@ -34,7 +34,7 @@ class Server extends Pop {
     const app = express()
     const port = process.env || portNumber
     
-    app.get(route, (req, res) => res.send(content))
+    app.get("/", (req, res) => res.send(content))
 
     app.get(route, function (req, res, next) {
   res.sendFile(path.join(__dirname, index));
