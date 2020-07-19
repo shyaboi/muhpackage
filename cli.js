@@ -7,12 +7,26 @@ fs.mkdir("./muhpackage", { recursive: true }, (err) => {
   if (err) throw err;
 });
 
+fs.writeFile(
+    "./muhpackage/server.js",
+    `
+
+    var Muhpackage = require("muhpackage");
+    var server = new Muhpackage()
+    
+    
+    server.sitePop()`,
+    (err) => {
+      if (err) throw err;
+    }
+  );
+
 fs.mkdir("./muhpackage/views", { recursive: true }, (err) => {
   if (err) throw err;
 });
 
 fs.writeFile(
-  "./muhpackage/index.html",
+  "./muhpackage/views/index.html",
   `<!DOCTYPE html>
   <html lang="en">
   <head>
