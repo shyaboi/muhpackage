@@ -25,7 +25,7 @@ module.exports = Ok
 
 class Server extends Pop {
 
-  sitePop(portNumber, route, content, index){
+  sitePop(portNumber, content, index){
 
 
     const express = require('express')
