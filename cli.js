@@ -40,10 +40,12 @@ fs.writeFile(
   const stdout = execSync('cd muhpackage && npm init -y');
   console.error('error', child.error);
   console.log('stdout ', child.stdout);
+  console.error('stderr ', child.stderr);
   
 const stdout2 = execSync('npm i express');
-console.error('error2', child2.error);
-console.log('stdout2 ', child2.stdout);
+console.error('error', child2.error);
+console.log('stdout ', child2.stdout);
+console.error('stderr ', child2.stderr);
 
 
 fs.writeFile(
