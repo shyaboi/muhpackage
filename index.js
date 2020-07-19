@@ -37,7 +37,7 @@ class Server extends Pop {
     var router = express.Router();
     const app = express()
     var pNum = pN
-    portNumber = process.env || pNum
+    var portNumber = process.env || pNum
     const port = portNumber
     
     app.get("/", (req, res) => res.send(content))
