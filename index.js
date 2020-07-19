@@ -4,40 +4,30 @@
         console.log('hello npm friends');
     }
 
+    nThing(){
+      console.log('benus')
+    }
+
     pop(pop) {
         console.log(pop);
     }
     shyaboi() {
-      console.log('Shyaboi!');
+      console.log('Shysadasaboi!');
   }
 }
 module.exports = Pop
 
-class Ok extends Pop {
-  
-  
-  otherThing() {
-    console.log('i am another thing');
-  }
-}
-module.exports = Ok
 
 
 class Server extends Pop {
-  // sitePort(port)
-  // {
-  //   port = portNumber
-  // }
-  newRoute(rt, dex){
-    const express = require('express')
-    const app = express()
-    app.get(rt, function (req, res, next) {
-      res.sendFile(path.join(__dirname, dex));
-  });
-}
 
-  sitePop(pN, route, content, index){
-    
+  sitePop(pN=process.env.PORT||3333,
+   route1="/",
+    route2="/index",
+     route3="/dexy",
+      index="../../views/index.html",
+       dexy="../../views/dexy.html",
+        dex="../../views/index2.html" ){
     
     const express = require('express')
     var path = require('path');
@@ -46,11 +36,21 @@ class Server extends Pop {
     // var pNum = pN
     // var portNumber = process.env || pNum
     const port = pN
-    
-    app.get("/", (req, res) => res.send(content))
 
-    app.get(route, function (req, res, next) {
+    app.use(express.static(path.join(__dirname, 'views')));
+
+    
+
+    app.get(route1, function (req, res, next) {
   res.sendFile(path.join(__dirname, index));
+});
+
+app.get(route2, function (req, res, next) {
+  res.sendFile(path.join(__dirname, dex));
+});
+
+app.get(route3, function (req, res, next) {
+  res.sendFile(path.join(__dirname, dexy));
 });
 
     
