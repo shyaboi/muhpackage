@@ -32,7 +32,7 @@ class Server extends Pop {
     var path = require('path');
     var router = express.Router();
     const app = express()
-    const port = process.env || portNumber
+    const port = portNumber
     
     app.get("/", (req, res) => res.send(content))
 
