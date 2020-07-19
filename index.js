@@ -29,7 +29,7 @@ class Server extends Pop {
   //   port = portNumber
   // }
   
-  sitePop(portNumber, route, content, index){
+  sitePop(route, content, index){
     
     
     const express = require('express')
@@ -37,7 +37,7 @@ class Server extends Pop {
     var router = express.Router();
     const app = express()
     var portNumber
-    const port = portNumber
+    const port = process.env || 1234
     
     app.get("/", (req, res) => res.send(content))
 
