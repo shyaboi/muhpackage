@@ -50,17 +50,11 @@ exec("cd muhpackage && npm i express", (error, data) => {
 
 
 exec("cd muhpackage && npm i muhpackage", (error, data, getter) => {
+  if(error){
+    console.log("error",error.message);
+		return;
+	}
   console.log("muhpackage installed itself")
-	if(error){
-		console.log("error",error.message);
-		return;
-	}
-	if(getter){
-		console.log("data",data);
-		return;
-	}
-	console.log("data",data);
-
 });
 
 
@@ -77,6 +71,14 @@ fs.writeFile(
   );
   console.log("Server Created")
 
+
+  exec("cd muhpackage && cd views", (error, data, getter) => {
+    if(error){
+      console.log("error",error.message);
+      return;
+    }
+    console.log("view move")
+  });
 
 
 fs.mkdir("./muhpackage/views", { recursive: true }, (err) => {
