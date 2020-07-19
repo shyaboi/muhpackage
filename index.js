@@ -37,7 +37,10 @@ class Server extends Pop {
     // var portNumber = process.env || pNum
     const port = pN
 
-    app.use(express.static(path.join(__dirname, 'views')));
+    app.use("/", express.static("./views/imgs"));
+    app.use("/index", express.static("./views/imgs"));
+    app.use("/dexy", express.static("./views/imgs"));
+
 
     
 

@@ -3,6 +3,8 @@
   "version": "1.0.40",
   "description": "This is muh npm package. It currently does a thing.",
   "main": "index.js",
+  "bin": "./cli.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
