@@ -5,9 +5,9 @@ const fs = require("fs");
 
 fs.mkdir("./muhpackage", { recursive: true }, (err) => {
   if (err) throw err;
+  console.log("root file made")
 });
 
-console.log("root file made")
 
 fs.writeFile(
     "./muhpackage/package.json",
@@ -28,10 +28,10 @@ fs.writeFile(
       }`,
     (err) => {
       if (err) throw err;
+      console.log("package JSON made")
     }
   );
 
-console.log("package JSON made")
 
 
 
@@ -47,9 +47,9 @@ exec("cd muhpackage && npm i express", (error, data, getter) => {
 	}
 	console.log("data",data);
 
+  console.log("express installed")
 });
 
-console.log("express installed")
 
 
 exec("cd muhpackage && npm i muhpackage", (error, data, getter) => {
@@ -63,30 +63,30 @@ exec("cd muhpackage && npm i muhpackage", (error, data, getter) => {
 	}
 	console.log("data",data);
 
+  console.log("muhpackage installed itself")
 });
 
-console.log("muhpackage installed itself")
 
 
 fs.writeFile(
-    "./muhpackage/server.js",
-    `var Muhpackage = require("muhpackage");
-    var server = new Muhpackage()
-    
-    server.sitePop()`,
-    (err) => {
-      if (err) throw err;
-    }
+  "./muhpackage/server.js",
+  `var Muhpackage = require("muhpackage");
+  var server = new Muhpackage()
+  
+  server.sitePop()`,
+  (err) => {
+    if (err) throw err;
+  }
   );
+  console.log("Server Created")
 
-console.log("Server Created")
 
 
 fs.mkdir("./muhpackage/views", { recursive: true }, (err) => {
   if (err) throw err;
 });
-
 console.log("views folder created")
+
 
 
 fs.writeFile(
@@ -109,8 +109,8 @@ fs.writeFile(
   (err) => {
     if (err) throw err;
   }
-);
-console.log("index.html created")
+  );
+  console.log("index.html created")
 
 
 fs.writeFile(
