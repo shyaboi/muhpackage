@@ -24,18 +24,19 @@ module.exports = Ok
 
 
 class Server extends Pop {
-  sitePop(portNumber, content, index){
+
+  sitePop(portNumber, route, content, index){
 
 
     const express = require('express')
     var path = require('path');
     var router = express.Router();
     const app = express()
-    const port = portNumber
+    const port = process.env || portNumber
     
-    app.get('/', (req, res) => res.send(content))
+    app.get(route, (req, res) => res.send(content))
 
-    app.get("/index", function (req, res, next) {
+    app.get(route, function (req, res, next) {
   res.sendFile(path.join(__dirname, index));
 });
     
