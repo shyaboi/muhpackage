@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const { exec } = require('child_process');
 var path = require("path");
 const fs = require("fs");
 
@@ -7,7 +8,31 @@ fs.mkdir("./muhpackage", { recursive: true }, (err) => {
   if (err) throw err;
 });
 
-const { execSync } = require('child_process');
+
+fs.writeFile(
+    "./muhpackage/package.json",
+    `
+    {
+        "name": "My New Website!",
+        "version": "1.0.0",
+        "description": "My new site made with simpleserver",
+        "main": "server.js",
+        "scripts": {
+          "start": "node server.js"
+        },
+        "keywords": [
+          "many"
+        ],
+        "author": "Shyaboi",
+        "license": "ISC",
+        "dependencies": {
+        }
+      }`,
+    (err) => {
+      if (err) throw err;
+    }
+  );
+
 // stderr is sent to stdout of parent process
 // you can set options.stdio if you want it to go elsewhere
 const stdout = execSync('cd muhpackage && npm init -y');
@@ -16,6 +41,13 @@ const child = spawnSync('cd muhpackage && npm init -y', );
 console.error('error', child.error);
 console.log('stdout ', child.stdout);
 console.error('stderr ', child.stderr);
+
+const stdout2 = execSync('npm i express');
+const { spawnSync2} = require('child_process');
+const child2 = spawnSync2('npm i express', );
+console.error('error', child2.error);
+console.log('stdout ', child2.stdout);
+console.error('stderr ', child2.stderr);
 
 
 fs.writeFile(
