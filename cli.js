@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const { exec } = require('child_process');
 var path = require("path");
 const fs = require("fs");
 
@@ -8,32 +9,40 @@ fs.mkdir("./muhpackage", { recursive: true }, (err) => {
 });
 
 
-fs.writeFile(
-    "./muhpackage/package.json",
-    `
-    {
-        "name": "My New Website!",
-        "version": "1.0.0",
-        "description": "My new site made with simpleserver",
-        "main": "server.js",
-        "scripts": {
-          "start": "node server.js",
-        },
-        "keywords": [
-          "many"
-        ],
-        "author": "Shyaboi",
-        "license": "ISC",
-        "dependencies": {
-          "express": "^4.17.1"
-          "muhpackage": "^1.0.46"
-
-        }
-      }`,
-    (err) => {
-      if (err) throw err;
+exec('npm init', (err, stdout, stderr) => {
+    if (err) {
+      // node couldn't execute the command
+      return;
     }
-  );
+  
+    // the *entire* stdout and stderr (buffered)
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+  });
+  
+
+
+exec('npm i express', (err, stdout, stderr) => {
+  if (err) {
+    // node couldn't execute the command
+    return;
+  }
+
+  // the *entire* stdout and stderr (buffered)
+  console.log(`stdout: ${stdout}`);
+  console.log(`stderr: ${stderr}`);
+});
+
+exec('npm i muhpackage', (err, stdout, stderr) => {
+    if (err) {
+      // node couldn't execute the command
+      return;
+    }
+  
+    // the *entire* stdout and stderr (buffered)
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+  });
 
 fs.writeFile(
     "./muhpackage/server.js",
