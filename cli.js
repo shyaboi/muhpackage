@@ -32,23 +32,20 @@ fs.writeFile(
       if (err) throw err;
     }
   );
-  const { execSync } = require('child_process');
-  const { spawnSync} = require('child_process');
-  
-  // stderr is sent to stdout of parent process
-  // you can set options.stdio if you want it to go elsewhere
-  const stdout = execSync('cd muhpackage && npm init -y');
-  const child = spawnSync('cd muhpackage && npm init -y', );
-  console.error('error', child.error);
-  console.log('stdout ', child.stdout);
-  console.error('stderr ', child.stderr);
-  
-const stdout2 = execSync('npm i express');
-const child2 = spawnSync('npm i express', );
-console.error('error', child2.error);
-console.log('stdout ', child2.stdout);
-console.error('stderr ', child2.stderr);
 
+  const { exec } = require("child_process");
+exec("ls", (error, data, getter) => {
+	if(error){
+		console.log("error",error.message);
+		return;
+	}
+	if(getter){
+		console.log("data",data);
+		return;
+	}
+	console.log("data",data);
+
+});
 
 fs.writeFile(
     "./muhpackage/server.js",
