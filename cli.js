@@ -12,13 +12,12 @@ fs.writeFile(
     "./muhpackage/package.json",
     `
     {
-        "name": "muhpackage",
+        "name": "My New Website!",
         "version": "1.0.44",
         "description": "This is muh npm package. It currently does a thing.",
         "main": "index.js",
         "scripts": {
-          "start": "node index.js",
-          "test": "echo \"Error: no test specified\" && exit 1"
+          "start": "node server.js",
         },
         "keywords": [
           "many"
@@ -36,11 +35,8 @@ fs.writeFile(
 
 fs.writeFile(
     "./muhpackage/server.js",
-    `
-
-    var Muhpackage = require("muhpackage");
+    `var Muhpackage = require("muhpackage");
     var server = new Muhpackage()
-    
     
     server.sitePop()`,
     (err) => {
