@@ -72,19 +72,23 @@ fs.writeFile(
   console.log("Server Created")
 
 
-  exec("cd muhpackage && cd views", (error, data, getter) => {
-    if(error){
-      console.log("error",error.message);
-      return;
-    }
-    console.log("view move")
+  
+  
+  fs.mkdir("./muhpackage/views", { recursive: true }, (err) => {
+    if (err) throw err;
   });
-
-
-fs.mkdir("./muhpackage/views", { recursive: true }, (err) => {
-  if (err) throw err;
-});
-console.log("views folder created")
+  console.log("views folder created")
+     
+  
+  
+  
+  exec("cd muhpackage && cd views", (error, data, getter) => {
+            if(error){
+              console.log("error",error.message);
+              return;
+            }
+            console.log("view move")
+          });
 
 
 
