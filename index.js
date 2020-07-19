@@ -36,7 +36,7 @@ class Server extends Pop {
     
     app.get("/", (req, res) => res.send(content))
 
-    app.get(route, function (req, res, next) {
+    app.get(`${route}`, function (req, res, next) {
   res.sendFile(path.join(__dirname, index));
 });
     
