@@ -13,9 +13,9 @@ fs.writeFile(
     `
     {
         "name": "My New Website!",
-        "version": "1.0.44",
-        "description": "This is muh npm package. It currently does a thing.",
-        "main": "index.js",
+        "version": "1.0.0",
+        "description": "My new site made with simpleserver",
+        "main": "server.js",
         "scripts": {
           "start": "node server.js",
         },
@@ -26,6 +26,8 @@ fs.writeFile(
         "license": "ISC",
         "dependencies": {
           "express": "^4.17.1"
+          "muhpackage": "^1.0.46"
+
         }
       }`,
     (err) => {
