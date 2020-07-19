@@ -33,7 +33,7 @@ fs.writeFile(
   );
 
   const { exec } = require("child_process");
-exec("ls", (error, data, getter) => {
+exec("cd muhpackage && npm i express", (error, data, getter) => {
 	if(error){
 		console.log("error",error.message);
 		return;
