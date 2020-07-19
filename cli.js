@@ -36,16 +36,13 @@ fs.writeFile(
 
 
   const { exec } = require("child_process");
-exec("cd muhpackage && npm i express", (error, data, getter) => {
+exec("cd muhpackage && npm i express", (error, data) => {
 	if(error){
 		console.log("error",error.message);
 		return;
 	}
-	if(getter){
+
 		console.log("data",data);
-		return;
-	}
-	console.log("data",data);
 
   console.log("express installed")
 });
@@ -53,6 +50,7 @@ exec("cd muhpackage && npm i express", (error, data, getter) => {
 
 
 exec("cd muhpackage && npm i muhpackage", (error, data, getter) => {
+  console.log("muhpackage installed itself")
 	if(error){
 		console.log("error",error.message);
 		return;
@@ -63,7 +61,6 @@ exec("cd muhpackage && npm i muhpackage", (error, data, getter) => {
 	}
 	console.log("data",data);
 
-  console.log("muhpackage installed itself")
 });
 
 
