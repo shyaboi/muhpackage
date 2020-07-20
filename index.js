@@ -41,6 +41,12 @@ class Server extends Pop {
     app.use("/", express.static("./views/imgs"));
     app.use("/index", express.static("./views/imgs"));
     app.use("/dexy", express.static("./views/imgs"));
+    app.use("/dexy", express.static("./views/js"));
+    app.use("/index", express.static("./views/js"));
+    app.use("/", express.static("./views/js"));
+    app.use("/", express.static("./views/styles"));
+    app.use("/index", express.static("./views/styles"));
+    app.use("/dexy", express.static("./views/styles"));
 
 
     

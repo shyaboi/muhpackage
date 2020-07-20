@@ -154,21 +154,23 @@ fs.writeFile(
 
 fs.writeFile(
   "./muhpackage/views/index.html",
-  `<!DOCTYPE html>
-  <html lang="en">
+  `<html>
   <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+      <title>Simple Server</title>
+      <link rel="stylesheet" href="style.css">
+      <style>
+          * {margin:0; padding: 0; color:red;}
+      </style>
   </head>
+
   <body>
-  <a href="/index">index</a>
-  <img src="https://i.ibb.co/N9X8N0N/logo.png" alt="ooof">
-  <a href="/dexy">dexy</a>
-  
-  
+      <canvas id="tv-screen"></canvas>
+      <a href="/index" id="index">Index</a>
+      <a href="/dexy" id="dexy">Dexy</a>
+
   </body>
-  </html>`,
+  <script src="dvd.js"></script>
+</html>`,
   (err) => {
     if (err) throw err;
   }
@@ -183,7 +185,7 @@ fs.writeFile(
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Server</title>
     </head>
     <body>
     anoterh 1
@@ -206,7 +208,7 @@ fs.writeFile(
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Server</title>
     </head>
     <body>
       <a href="/index">index</a>
@@ -220,12 +222,14 @@ fs.writeFile(
 );
 console.log("dexy.html created")
 
+
+
 fs.mkdir("./muhpackage/views/imgs", { recursive: true }, (err) => {
   if (err) throw err;
 });
 console.log("images folder created")
 
-exec("cd muhpackage/views/imgs && curl -o logo.png https://i.ibb.co/N9X8N0N/logo.png", (error, data) => {
+exec("cd muhpackage/views/imgs && curl -o logo.png https://i.ibb.co/sWr5Tpb/logo.png", (error, data) => {
 	if(error){
 		console.log("error",error.message);
 		return;
@@ -235,6 +239,146 @@ exec("cd muhpackage/views/imgs && curl -o logo.png https://i.ibb.co/N9X8N0N/logo
 
   console.log("cuuuuuuuuuuuuuuurl")
 });
+
+exec("cd muhpackage/views/styles && echo making it stlyeish", (error, data) => {
+	if(error){
+		console.log("error",error.message);
+		return;
+	}
+  console.log("cd")
+		console.log(data);
+});
+
+fs.mkdir("./muhpackage/views/styles", { recursive: true }, (err) => {
+  if (err) throw err;
+});
+
+fs.writeFile(
+  "./muhpackage/views/styles/stlye.css",
+  ` * {margin:0; padding: 0; color:red;}
+  #index{
+    position: absolute;
+    font-size: 65px;
+    top: 10vw;
+    right: 50vw;
+    overflow: hidden;
+}
+
+#dexy{
+    position: absolute;
+    font-size: 65px;
+    top: 20vw;
+    right: 50vw;
+    overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }`,
+  (err) => {
+    if (err) throw err;
+  }
+);
+console.log("style.css created")
+
+exec("cd muhpackage/views && echo making JavaScript", (error, data) => {
+	if(error){
+		console.log("error",error.message);
+		return;
+	}
+  console.log("makeing js folder")
+		console.log(data);
+})
+
+fs.mkdir("./muhpackage/views/js", { recursive: true }, (err) => {
+  if (err) throw err;
+});
+
+exec("cd muhpackage/views/js && echo making JavaScript2", (error, data) => {
+	if(error){
+		console.log("error",error.message);
+		return;
+	}
+  console.log("makeing js file")
+		console.log(data);
+})
+
+
+fs.writeFile(
+  "./muhpackage/views/js/dvd.js",
+  `// stolen from https://github.com/AlessioMaddaluno/bouncing-dvd-logo
+
+  let speed = 20;
+  let scale = 0.40; 
+  let canvas;
+  let ctx;
+  let logoColor;
+  
+  let dvd = {
+      x: 200,
+      y: 300,
+      xspeed: 4,
+      yspeed: 4,
+      img: new Image()
+  };
+  
+  (function main(){
+      canvas = document.getElementById("tv-screen");
+      ctx = canvas.getContext("2d");
+      dvd.img.src = 'logo.png';
+  
+      //Draw the "tv screen"
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+  
+      pickColor();
+      update();
+  })();
+  
+  function update() {
+      setTimeout(() => {
+          //Draw the canvas background
+          ctx.fillStyle = '#000';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          //Draw DVD Logo and his background
+          ctx.fillStyle = logoColor;
+          ctx.fillRect(dvd.x, dvd.y, dvd.img.width*scale, dvd.img.height*scale);
+          ctx.drawImage(dvd.img, dvd.x, dvd.y, dvd.img.width*scale, dvd.img.height*scale);
+          //Move the logo
+          dvd.x+=dvd.xspeed;
+          dvd.y+=dvd.yspeed;
+          //Check for collision 
+          checkHitBox();
+          update();   
+      }, speed)
+  }
+  
+  //Check for border collision
+  function checkHitBox(){
+      if(dvd.x+dvd.img.width*scale >= canvas.width || dvd.x <= 0){
+          dvd.xspeed *= -1;
+          pickColor();
+      }
+          
+      if(dvd.y+dvd.img.height*scale >= canvas.height || dvd.y <= 0){
+          dvd.yspeed *= -1;
+          pickColor();
+      }    
+  }
+  
+  //Pick a random color in RGB format
+  function pickColor(){
+      r = Math.random() * (254 - 0) + 0;
+      g = Math.random() * (254 - 0) + 0;
+      b = Math.random() * (254 - 0) + 0;
+  
+      logoColor = 'rgb('+r+','+g+', '+b+')';
+  }`,
+  (err) => {
+    if (err) throw err;
+  }
+);
+console.log("js homepage made")
 
 
 const donus = function () {
