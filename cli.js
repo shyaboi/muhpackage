@@ -8,6 +8,17 @@ fs.mkdir("./muhpackage", { recursive: true }, (err) => {
   console.log("root file made")
 });
 
+fs.writeFile(
+  "./muhpackage/.gitignore",
+  `.gitignore
+  noce_modules
+  `,
+  (err) => {
+    if (err) throw err;
+    console.log("git ignore created")
+  }
+);
+
 
 fs.writeFile(
     "./muhpackage/package.json",
@@ -55,6 +66,7 @@ exec("cd muhpackage && npm i muhpackage", (error, data, getter) => {
 		return;
 	}
   console.log("muhpackage installed itself")
+  console.log("Have fun with muhpackage!")
 });
 
 
@@ -165,5 +177,14 @@ fs.mkdir("./muhpackage/views/imgs", { recursive: true }, (err) => {
 });
 console.log("images folder created")
 
-
-console.log("Have fun with muhpackage!")
+fs.copyFile("logo.png", "./muhpackage/views/imgs/logo.png", (err) => { 
+  if (err) { 
+    console.log("Error Found:", err); 
+  } 
+  else { 
+  
+    // Get the current filenames 
+    // after the function 
+console.log("things happen")
+  } 
+}); 
