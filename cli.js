@@ -29,8 +29,8 @@ fs.writeFile(
         "description": "My new site made with simpleserver",
         "main": "server.js",
         "scripts": {
-          "start": "nodemon index.js",
-          "pop": "start http://localhost:3333 && npm start"
+          "start": "nodemon server.js",
+          "pop": "start || open http://localhost:3333 && npm start"
         },
         "keywords": [
           "many"
