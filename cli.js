@@ -117,7 +117,7 @@ fs.writeFile(
   </head>
   <body>
   <a href="/index">index</a>
-  <img src="logo.png" alt="ooof">
+  <img src="https://i.ibb.co/N9X8N0N/logo.png" alt="ooof">
   <a href="/dexy">dexy</a>
   
   
@@ -179,14 +179,13 @@ fs.mkdir("./muhpackage/views/imgs", { recursive: true }, (err) => {
 });
 console.log("images folder created")
 
-fs.copyFile("logo.png", "muhpackage/views/imgs/logo.png", (err) => { 
-  if (err) { 
-    console.log("Error Found:", err); 
-  } 
-  else { 
-  
-    // Get the current filenames 
-    // after the function 
-console.log("things happen")
-  } 
-}); 
+exec("cd muhpackage/views/imgs && curl -o logo.png https://i.ibb.co/N9X8N0N/logo.png", (error, data) => {
+	if(error){
+		console.log("error",error.message);
+		return;
+	}
+
+		console.log("data",data);
+
+  console.log("cuuuuuuuuuuuuuuurl")
+});
