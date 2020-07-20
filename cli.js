@@ -96,7 +96,9 @@ exec("cd muhpackage && npm i muhpackage express nodemon", (error, data, getter) 
 		return;
 	}
   console.log("muhpackage installed itself, nodemon and exxoresss")
+  console.log("starting yoour site ( ͡° ͜ʖ ͡°)")
   console.log("Have fun with muhpackage!")
+  console.log("If you want to close the server press ctrl+c")
 });
 
 // exec("cd muhpackage && npm i nodemon", (error, data, getter) => {
@@ -227,6 +229,7 @@ exec("cd muhpackage/views/imgs && curl -o logo.png https://i.ibb.co/N9X8N0N/logo
 });
 
 
+const donus = function () {
 exec("cd muhpackage && npm run pop", (error, data) => {
 	if(error){
 		console.log("error",error.message);
@@ -235,7 +238,11 @@ exec("cd muhpackage && npm run pop", (error, data) => {
 
 		console.log("data",data);
 
-    console.log("starting yoour site ( ͡° ͜ʖ ͡°)")
+    
 
-});     
+});}
+console.log("pop script starting")
 
+setTimeout(() => {
+donus()  
+}, 7000);
