@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "muhpackage": "^1.0.82",
+    "muhpackage": "^1.0.83",
     "nodemon": "^2.0.4"
   }
 }

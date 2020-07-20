@@ -1,8 +1,15 @@
 #!/usr/bin/env node
+const { exec } = require("child_process");
 
-var path = require("path");
 const fs = require("fs");
 
+exec("echo installing things and stuff", (error, data, getter) => {
+  if(error){
+    console.log("error",error.message);
+		return;
+	}
+ console.log(data)
+});
 
 
 fs.mkdir("./muhpackage", { recursive: true }, (err) => {
@@ -76,7 +83,6 @@ if (process.platform === "win32") {
 
 
 
-  const { exec } = require("child_process");
 // exec("cd muhpackage && npm i express", (error, data) => {
 // 	if(error){
 // 		console.log("error",error.message);
@@ -94,7 +100,8 @@ exec("cd muhpackage && npm i muhpackage express nodemon", (error, data, getter) 
   if(error){
     console.log("error",error.message);
 		return;
-	}
+  }
+  console.log(data)
   console.log("muhpackage installed itself, nodemon and exxoresss")
   console.log("starting yoour site ( ͡° ͜ʖ ͡°)")
   console.log("Have fun with muhpackage!")
@@ -139,6 +146,7 @@ fs.writeFile(
               console.log("error",error.message);
               return;
             }
+            console.log(data)
             console.log("view move")
           });
 
@@ -223,7 +231,7 @@ exec("cd muhpackage/views/imgs && curl -o logo.png https://i.ibb.co/N9X8N0N/logo
 		return;
 	}
 
-		console.log("data",data);
+		console.log(data);
 
   console.log("cuuuuuuuuuuuuuuurl")
 });
@@ -236,7 +244,7 @@ exec("cd muhpackage && npm run pop", (error, data) => {
 		return;
 	}
 
-		console.log("data",data);
+		console.log(data);
 
     
 
