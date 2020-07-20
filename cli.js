@@ -275,6 +275,14 @@ exec("cd muhpackage/views/styles && echo making it stlyeish", (error, data) => {
 fs.mkdir("./muhpackage/views/styles", { recursive: true }, (err) => {
   if (err) throw err;
 });
+exec("cd muhpackage/views/styles && echo went to style folder", (error, data) => {
+	if(error){
+		console.log("error",error.message);
+		return;
+	}
+  console.log("cd")
+		console.log(data);
+});
 
 fs.writeFile(
   "./muhpackage/views/styles/style.css",
