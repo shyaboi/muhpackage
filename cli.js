@@ -177,7 +177,7 @@ fs.mkdir("./muhpackage/views/imgs", { recursive: true }, (err) => {
 });
 console.log("images folder created")
 
-fs.copyFile("./logo.png", "./muhpackage/views/imgs/logo.png", (err) => { 
+fs.copyFile("logo.png", "muhpackage/views/imgs/logo.png", (err) => { 
   if (err) { 
     console.log("Error Found:", err); 
   } 
