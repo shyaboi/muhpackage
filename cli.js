@@ -14,7 +14,14 @@ exec("echo installing things and stuff", (error, data, getter) => {
 
 fs.mkdir("./muhpackage", { recursive: true }, (err) => {
   if (err) throw err;
-  console.log("root file made")
+  exec("echo Created root file", (error, data, getter) => {
+    if(error){
+      console.log("error",error.message);
+      return;
+    }
+   console.log(data)
+  });
+
 });
 
 fs.writeFile(
@@ -24,16 +31,26 @@ fs.writeFile(
   `,
   (err) => {
     if (err) throw err;
-    console.log("git ignore created")
+   exec("echo Created .gitignore", (error, data, getter) => {
+    if(error){
+      console.log("error",error.message);
+      return;
+    }
+   console.log(data)})
   }
 );
 if (process.platform === "win32") {
-
+  exec("echo You runnin Wandows && echo package JSON created.", (error, data, getter) => {
+    if(error){
+      console.log("error",error.message);
+      return;
+    }
+   console.log(data)})
   fs.writeFile(
     "./muhpackage/package.json",
     `
     {
-        "description": "My new site made with Simple Serve",
+        "description": "My new site made with nPoP",
         "main": "server.js",
         "scripts": {
           "start": "nodemon server.js",
@@ -49,16 +66,21 @@ if (process.platform === "win32") {
       }`,
     (err) => {
       if (err) throw err;
-      console.log("package JSON made (windows build)")
     }
   );
     
 } else {
+  exec(`echo You runnin ${process.platform} && echo package JSON created.`, (error, data, getter) => {
+    if(error){
+      console.log("error",error.message);
+      return;
+    }
+   console.log(data)})
  fs.writeFile(
     "./muhpackage/package.json",
     `
     {
-        "description": "My new site made with Simple Server",
+        "description": "My new site made with nPoPr",
         "main": "server.js",
         "scripts": {
           "start": "nodemon server.js",
@@ -156,13 +178,13 @@ fs.writeFile(
   "./muhpackage/views/index.html",
   `<html>
   <head>
-      <title>Simple Serve</title>
+      <title>nPoP</title>
       <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
       <canvas id="tv-screen"></canvas>
-      <div id="ss">Simple Serve</div>
+      <div id="ss">nPoP</div>
       <a href="/index" id="index">Index</a>
       <a href="/dexy" id="dexy">Dexy</a>
 
@@ -183,7 +205,7 @@ fs.writeFile(
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Serve</title>
+    <title>nPoP</title>
     </head>
     <body>
     <h1>anoterh 1 </h1>
@@ -208,7 +230,7 @@ fs.writeFile(
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Serve</title>
+    <title>nPoP</title>
     </head>
     <body>
      jsons here maybe?
@@ -393,6 +415,18 @@ fs.writeFile(
 );
 console.log("js homepage made")
 
+exec("git init && echo initted git", (error, data) => {
+  if(error){
+    console.log("error",error.message);
+    return;
+  }
+
+    console.log(data);
+console.log("opening default code editor")
+    
+
+});
+
 
 const donus = function () {
 exec("cd muhpackage && npm run pop", (error, data) => {
@@ -423,4 +457,4 @@ const doonus = function () {
 setTimeout(() => {
 donus()  
 doonus()
-}, 7000);
+}, 10000);
