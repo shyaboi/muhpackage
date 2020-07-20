@@ -1,16 +1,16 @@
-{
-  "description": "My new site made with simpleserver",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon server.js",
-    "pop": "open || start http://localhost:3333 && npm start"
-  },
-  "keywords": [
-    "many"
-  ],
-  "author": "Shyaboi",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
-}
+
+    {
+        "description": "My new site made with simpleserver",
+        "main": "server.js",
+        "scripts": {
+          "start": "nodemon server.js",
+          "pop": "start http://localhost:3333 && npm start"
+        },
+        "keywords": [
+          "many"
+        ],
+        "author": "Shyaboi",
+        "license": "ISC",
+        "dependencies": {
+        }
+      }

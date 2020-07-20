@@ -20,9 +20,9 @@ fs.writeFile(
     console.log("git ignore created")
   }
 );
+if (process.platform === "win32") {
 
-
-fs.writeFile(
+  fs.writeFile(
     "./muhpackage/package.json",
     `
     {
@@ -30,7 +30,7 @@ fs.writeFile(
         "main": "server.js",
         "scripts": {
           "start": "nodemon server.js",
-          "pop": "open || start http://localhost:3333 && npm start"
+          "pop": "start http://localhost:3333 && npm start"
         },
         "keywords": [
           "many"
@@ -42,9 +42,36 @@ fs.writeFile(
       }`,
     (err) => {
       if (err) throw err;
-      console.log("package JSON made")
+      console.log("package JSON made (windows build)")
     }
   );
+    
+} else {
+ fs.writeFile(
+    "./muhpackage/package.json",
+    `
+    {
+        "description": "My new site made with simpleserver",
+        "main": "server.js",
+        "scripts": {
+          "start": "nodemon server.js",
+          "pop": "open http://localhost:3333 && npm start"
+        },
+        "keywords": [
+          "many"
+        ],
+        "author": "Shyaboi",
+        "license": "ISC",
+        "dependencies": {
+        }
+      }`,
+    (err) => {
+      if (err) throw err;
+      console.log("package JSON made (unix/gnu build)")
+    }
+  );
+}
+
 
 
 
@@ -211,3 +238,4 @@ exec("cd muhpackage && npm run pop", (error, data) => {
     console.log("starting yoour site ( ͡° ͜ʖ ͡°)")
 
 });     
+
