@@ -251,7 +251,7 @@ fs.mkdir("./muhpackage/views/styles", { recursive: true }, (err) => {
 });
 
 fs.writeFile(
-  "./muhpackage/views/styles/stlye.css",
+  "./muhpackage/views/styles/style.css",
   ` * {margin:0; padding: 0; color:red;}
   #index{
     position: absolute;
