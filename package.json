@@ -1,6 +1,6 @@
 {
   "name": "muhpackage",
-  "version": "1.0.90",
+  "version": "1.0.91",
   "description": "This is muh npm package. It currently does a thing.",
   "main": "index.js",
   "init": "npm init -y && npm i express",
