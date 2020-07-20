@@ -33,7 +33,7 @@ if (process.platform === "win32") {
     "./muhpackage/package.json",
     `
     {
-        "description": "My new site made with simpleserver",
+        "description": "My new site made with Simple Serve",
         "main": "server.js",
         "scripts": {
           "start": "nodemon server.js",
@@ -58,7 +58,7 @@ if (process.platform === "win32") {
     "./muhpackage/package.json",
     `
     {
-        "description": "My new site made with simpleserver",
+        "description": "My new site made with Simple Server",
         "main": "server.js",
         "scripts": {
           "start": "nodemon server.js",
@@ -156,12 +156,13 @@ fs.writeFile(
   "./muhpackage/views/index.html",
   `<html>
   <head>
-      <title>Simple Server</title>
+      <title>Simple Serve</title>
       <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
       <canvas id="tv-screen"></canvas>
+      <div id="ss">Simple Serve</div>
       <a href="/index" id="index">Index</a>
       <a href="/dexy" id="dexy">Dexy</a>
 
@@ -182,10 +183,12 @@ fs.writeFile(
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Server</title>
+    <title>Simple Serve</title>
     </head>
     <body>
-    anoterh 1
+    <h1>anoterh 1 </h1>
+    a 2nd page for things.
+    This is very much a work in progress.
     <a href="/">home</a>
     <a href="/dexy">dexy</a>
     
@@ -205,9 +208,10 @@ fs.writeFile(
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Server</title>
+    <title>Simple Serve</title>
     </head>
     <body>
+     jsons here maybe?
       <a href="/index">index</a>
       <a href="/">home</a>
       
@@ -252,26 +256,38 @@ fs.mkdir("./muhpackage/views/styles", { recursive: true }, (err) => {
 
 fs.writeFile(
   "./muhpackage/views/styles/style.css",
-  ` * {margin:0; padding: 0; color:red;}
+  `  * {margin:0; padding: 0; color:red;}
+  #ss{
+    text-align: center;
+   position: absolute;
+   font-size: 98px;
+   top: 5vw;
+   right: 40vw;
+   overflow: hidden;
+   color: blue;
+ }
+ 
+ 
   #index{
-    position: absolute;
-    font-size: 65px;
-    top: 10vw;
-    right: 50vw;
-    overflow: hidden;
-}
-
-#dexy{
-    position: absolute;
-    font-size: 65px;
-    top: 20vw;
-    right: 50vw;
-    overflow: hidden;
-}
-
-body::-webkit-scrollbar {
-    display: none;
-  }`,
+     position: absolute;
+     font-size: 65px;
+     top: 10vw;
+     right: 50vw;
+     overflow: hidden;
+ }
+ 
+ 
+ #dexy{
+     position: absolute;
+     font-size: 65px;
+     top: 20vw;
+     right: 50vw;
+     overflow: hidden;
+ }
+ 
+ body::-webkit-scrollbar {
+     display: none;
+   }`,
   (err) => {
     if (err) throw err;
   }
