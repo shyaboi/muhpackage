@@ -29,7 +29,8 @@ fs.writeFile(
         "description": "My new site made with simpleserver",
         "main": "server.js",
         "scripts": {
-          "start": "node server.js"
+          "start": "nodemon index.js",
+          "pop": "start http://localhost:3333 && npm start"
         },
         "keywords": [
           "many"
@@ -71,6 +72,14 @@ exec("cd muhpackage && npm i muhpackage", (error, data, getter) => {
   console.log("Have fun with muhpackage!")
 });
 
+exec("cd muhpackage && npm i nodemon", (error, data, getter) => {
+  if(error){
+    console.log("error",error.message);
+		return;
+	}
+  console.log("muhpackage installed itself")
+  console.log("Have fun with muhpackage!")
+});
 
 
 fs.writeFile(
@@ -180,6 +189,17 @@ fs.mkdir("./muhpackage/views/imgs", { recursive: true }, (err) => {
 console.log("images folder created")
 
 exec("cd muhpackage/views/imgs && curl -o logo.png https://i.ibb.co/N9X8N0N/logo.png", (error, data) => {
+	if(error){
+		console.log("error",error.message);
+		return;
+	}
+
+		console.log("data",data);
+
+  console.log("cuuuuuuuuuuuuuuurl")
+});
+
+exec("cd muhpackage && npm run pop", (error, data) => {
 	if(error){
 		console.log("error",error.message);
 		return;

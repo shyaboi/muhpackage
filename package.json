@@ -6,8 +6,8 @@
   "init": "npm init -y && npm i express",
   "bin": "./cli.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js",
+    "pop": "start http://localhost:3333 && npm start"
   },
   "keywords": [
     "many"
