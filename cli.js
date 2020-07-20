@@ -30,7 +30,7 @@ fs.writeFile(
         "main": "server.js",
         "scripts": {
           "start": "nodemon server.js",
-          "pop": "start || open http://localhost:3333 && npm start"
+          "pop": "open || start http://localhost:3333 && npm start"
         },
         "keywords": [
           "many"
@@ -50,36 +50,36 @@ fs.writeFile(
 
 
   const { exec } = require("child_process");
-exec("cd muhpackage && npm i express", (error, data) => {
-	if(error){
-		console.log("error",error.message);
-		return;
-	}
+// exec("cd muhpackage && npm i express", (error, data) => {
+// 	if(error){
+// 		console.log("error",error.message);
+// 		return;
+// 	}
 
-		console.log("data",data);
+// 		console.log("data",data);
 
-  console.log("express installed")
-});
+//   console.log("express installed")
+// });
 
 
 
-exec("cd muhpackage && npm i muhpackage", (error, data, getter) => {
+exec("cd muhpackage && npm i muhpackage express nodemon", (error, data, getter) => {
   if(error){
     console.log("error",error.message);
 		return;
 	}
-  console.log("muhpackage installed itself")
+  console.log("muhpackage installed itself, nodemon and exxoresss")
   console.log("Have fun with muhpackage!")
 });
 
-exec("cd muhpackage && npm i nodemon", (error, data, getter) => {
-  if(error){
-    console.log("error",error.message);
-		return;
-	}
-  console.log("muhpackage installed itself")
-  console.log("Have fun with muhpackage!")
-});
+// exec("cd muhpackage && npm i nodemon", (error, data, getter) => {
+//   if(error){
+//     console.log("error",error.message);
+// 		return;
+// 	}
+//   console.log("muhpackage installed itself")
+//   console.log("Have fun with muhpackage!")
+// });
 
 
 fs.writeFile(
@@ -199,6 +199,7 @@ exec("cd muhpackage/views/imgs && curl -o logo.png https://i.ibb.co/N9X8N0N/logo
   console.log("cuuuuuuuuuuuuuuurl")
 });
 
+
 exec("cd muhpackage && npm run pop", (error, data) => {
 	if(error){
 		console.log("error",error.message);
@@ -207,5 +208,6 @@ exec("cd muhpackage && npm run pop", (error, data) => {
 
 		console.log("data",data);
 
-  console.log("cuuuuuuuuuuuuuuurl")
-});
+    console.log("starting yoour site ( ͡° ͜ʖ ͡°)")
+
+});     

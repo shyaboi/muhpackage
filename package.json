@@ -6,8 +6,7 @@
   "init": "npm init -y && npm i express",
   "bin": "./cli.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "pop": "start http://localhost:3333 && npm start"
+    "start": "nodemon index.js"
   },
   "keywords": [
     "many"
