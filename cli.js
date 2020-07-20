@@ -158,9 +158,6 @@ fs.writeFile(
   <head>
       <title>Simple Server</title>
       <link rel="stylesheet" href="style.css">
-      <style>
-          * {margin:0; padding: 0; color:red;}
-      </style>
   </head>
 
   <body>
