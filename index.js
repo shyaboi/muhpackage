@@ -8,7 +8,7 @@
       console.log('benus')
     }
 
-    pop(pop) {
+    thing(pop) {
         console.log(pop);
     }
     shyaboi() {
@@ -21,7 +21,8 @@ module.exports = Pop
 
 class Server extends Pop {
 
-  sitePop(pN=process.env.PORT||3333,
+  pop(
+  pN=process.env.PORT||3333,
    route1="/",
     route2="/index",
      route3="/dexy",

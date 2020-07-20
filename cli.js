@@ -123,7 +123,7 @@ fs.writeFile(
   `var Muhpackage = require("muhpackage");
   var server = new Muhpackage()
   
-  server.sitePop()`,
+  server.pop()`,
   (err) => {
     if (err) throw err;
   }
@@ -243,14 +243,27 @@ exec("cd muhpackage && npm run pop", (error, data) => {
 		console.log("error",error.message);
 		return;
 	}
+  console.log("pop script starting")
 
 		console.log(data);
 
     
 
 });}
-console.log("pop script starting")
+const doonus = function () {
+  exec("cd muhpackage && code .", (error, data) => {
+    if(error){
+      console.log("error",error.message);
+      return;
+    }
+  
+      console.log(data);
+  console.log("opening default code editor")
+      
+  
+  });}
 
 setTimeout(() => {
 donus()  
+doonus()
 }, 7000);
