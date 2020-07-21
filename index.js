@@ -58,7 +58,8 @@ app.get(route2, function (req, res, next) {
 });
 
 app.get(route3, function (req, res, next) {
-  res.json([{ Expample: 'This is some data that could be resed by nPoP if you set the server GET settings.' }, {anoter1:"this is more data"}]);
+  res.json([{ Expample: 'This is some data that could be resed by nPoP if you set the server GET settings.' }, {anoter1:"this is more data"},
+{Another: "There is a POST route as well ( ͡° ͜ʖ ͡°)"}]);
 });
 
 app.post(route3, function (req, res, next) {

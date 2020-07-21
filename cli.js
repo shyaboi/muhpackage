@@ -437,7 +437,7 @@ console.log("opening default code editor")
 
 
 const donus = function () {
-exec("cd muhpackage && npm run pop", (error, data) => {
+exec("cd ./muhpackage && npm run pop", (error, data) => {
 	if(error){
 		console.log("error",error.message);
 		return;
@@ -450,7 +450,7 @@ exec("cd muhpackage && npm run pop", (error, data) => {
 
 });}
 const doonus = function () {
-  exec("cd muhpackage && code .", (error, data) => {
+  exec("cd ./muhpackage && code .", (error, data) => {
     if(error){
       console.log("error",error.message);
       return;
