@@ -1,6 +1,6 @@
 {
   "name": "npop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "nPoP is a simple server package.",
   "main": "index.js",
   "init": "npm init -y && npm i express",
