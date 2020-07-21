@@ -1,7 +1,7 @@
 {
-  "name": "nPoP",
-  "version": "1.0.1",
-  "description": "This is muh npm package. It currently does a thing.",
+  "name": "npop",
+  "version": "1.0.0",
+  "description": "nPoP is a simple server package.",
   "main": "index.js",
   "init": "npm init -y && npm i express",
   "bin": "./cli.js",

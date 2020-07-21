@@ -4,60 +4,63 @@ const { exec } = require("child_process");
 const fs = require("fs");
 
 exec("echo installing things and stuff", (error, data, getter) => {
-  if(error){
-    console.log("error",error.message);
-		return;
-	}
- console.log(data)
+  if (error) {
+    console.log("error", error.message);
+    return;
+  }
+  console.log(data);
 });
 
-
-fs.mkdir("./muhpackage", { recursive: true }, (err) => {
+fs.mkdir("./nPoP", { recursive: true }, (err) => {
   if (err) throw err;
   exec("echo Created root file", (error, data, getter) => {
-    if(error){
-      console.log("error",error.message);
+    if (error) {
+      console.log("error", error.message);
       return;
     }
-   console.log(data)
+    console.log(data);
   });
-
 });
 
 fs.writeFile(
-  "./muhpackage/.gitignore",
+  "./nPoP/.gitignore",
   `.gitignore
-  noce_modules
+node_modules
   `,
   (err) => {
     if (err) throw err;
-   exec("echo Created .gitignore", (error, data, getter) => {
-    if(error){
-      console.log("error",error.message);
-      return;
-    }
-   console.log(data)})
+    exec("echo Created .gitignore", (error, data, getter) => {
+      if (error) {
+        console.log("error", error.message);
+        return;
+      }
+      console.log(data);
+    });
   }
 );
 if (process.platform === "win32") {
-  exec("echo You runnin Wandows && echo package JSON created.", (error, data, getter) => {
-    if(error){
-      console.log("error",error.message);
-      return;
+  exec(
+    "echo You runnin Wandows && echo package JSON created.",
+    (error, data, getter) => {
+      if (error) {
+        console.log("error", error.message);
+        return;
+      }
+      console.log(data);
     }
-   console.log(data)})
+  );
   fs.writeFile(
-    "./muhpackage/package.json",
+    "./nPoP/package.json",
     `
     {
         "description": "My new site made with nPoP",
         "main": "server.js",
         "scripts": {
           "start": "nodemon server.js",
-          "pop": "start http://localhost:3333 && npm start"
+          "pop": "start http://localhost:3333 && nodemon server.js"
         },
         "keywords": [
-          "many"
+          "npop", "server", "express", "simple", "node", "nodejs"
         ],
         "author": "Shyaboi",
         "license": "ISC",
@@ -68,26 +71,29 @@ if (process.platform === "win32") {
       if (err) throw err;
     }
   );
-    
 } else {
-  exec(`echo You runnin ${process.platform} && echo package JSON created.`, (error, data, getter) => {
-    if(error){
-      console.log("error",error.message);
-      return;
+  exec(
+    `echo You runnin ${process.platform} && echo package JSON created.`,
+    (error, data, getter) => {
+      if (error) {
+        console.log("error", error.message);
+        return;
+      }
+      console.log(data);
     }
-   console.log(data)})
- fs.writeFile(
-    "./muhpackage/package.json",
+  );
+  fs.writeFile(
+    "./nPoP/package.json",
     `
     {
-        "description": "My new site made with nPoPr",
+        "description": "My new site made with nPoP",
         "main": "server.js",
         "scripts": {
           "start": "nodemon server.js",
-          "pop": "open http://localhost:3333 && npm start"
+          "pop": "open http://localhost:3333 && nodemon server.js"
         },
         "keywords": [
-          "many"
+          "npop", 'server', "express", "simple", "node", "nodejs"
         ],
         "author": "Shyaboi",
         "license": "ISC",
@@ -96,16 +102,12 @@ if (process.platform === "win32") {
       }`,
     (err) => {
       if (err) throw err;
-      console.log("package JSON made (unix/gnu build)")
+      console.log("package JSON made (unix/gnu build)");
     }
   );
 }
 
-
-
-
-
-// exec("cd muhpackage && npm i express", (error, data) => {
+// exec("cd nPoP && npm i express", (error, data) => {
 // 	if(error){
 // 		console.log("error",error.message);
 // 		return;
@@ -116,66 +118,58 @@ if (process.platform === "win32") {
 //   console.log("express installed")
 // });
 
-
-
-exec("cd muhpackage && npm i muhpackage express nodemon", (error, data, getter) => {
-  if(error){
-    console.log("error",error.message);
-		return;
+exec(
+  "cd ./nPoP && npm i nPoP express nodemon",
+  (error, data, getter) => {
+    if (error) {
+      console.log("error", error.message);
+      return;
+    }
+    console.log(data);
+    console.log("nPoP installed itself, nodemon and exxoresss");
+    console.log("starting yoour site ( ͡° ͜ʖ ͡°)");
+    console.log("Have fun with nPoP!");
+    console.log("If you want to close the server press ctrl+c");
   }
-  console.log(data)
-  console.log("muhpackage installed itself, nodemon and exxoresss")
-  console.log("starting yoour site ( ͡° ͜ʖ ͡°)")
-  console.log("Have fun with muhpackage!")
-  console.log("If you want to close the server press ctrl+c")
-});
+);
 
-// exec("cd muhpackage && npm i nodemon", (error, data, getter) => {
+// exec("cd nPoP && npm i nodemon", (error, data, getter) => {
 //   if(error){
 //     console.log("error",error.message);
 // 		return;
 // 	}
-//   console.log("muhpackage installed itself")
-//   console.log("Have fun with muhpackage!")
+//   console.log("nPoP installed itself")
+//   console.log("Have fun with nPoP!")
 // });
 
-
 fs.writeFile(
-  "./muhpackage/server.js",
-  `var Muhpackage = require("muhpackage");
-  var server = new Muhpackage()
+  "./nPoP/server.js",
+  `var nPoP = require("nPoP");
+  var server = new nPoP()
   
   server.pop()`,
   (err) => {
     if (err) throw err;
   }
-  );
-  console.log("Server Created")
+);
+console.log("Server Created");
 
+fs.mkdir("./nPoP/views", { recursive: true }, (err) => {
+  if (err) throw err;
+});
+console.log("views folder created");
 
-  
-  
-  fs.mkdir("./muhpackage/views", { recursive: true }, (err) => {
-    if (err) throw err;
-  });
-  console.log("views folder created")
-     
-  
-  
-  
-  exec("cd muhpackage && cd views", (error, data, getter) => {
-            if(error){
-              console.log("error",error.message);
-              return;
-            }
-            console.log(data)
-            console.log("view move")
-          });
-
-
+exec("cd ./nPoP && cd views", (error, data, getter) => {
+  if (error) {
+    console.log("error", error.message);
+    return;
+  }
+  console.log(data);
+  console.log("view move");
+});
 
 fs.writeFile(
-  "./muhpackage/views/index.html",
+  "./nPoP/views/index.html",
   `<html>
   <head>
       <title>nPoP</title>
@@ -194,12 +188,11 @@ fs.writeFile(
   (err) => {
     if (err) throw err;
   }
-  );
-  console.log("index.html created")
-
+);
+console.log("index.html created");
 
 fs.writeFile(
-  "./muhpackage/views/index2.html",
+  "./nPoP/views/index2.html",
   `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -220,11 +213,10 @@ fs.writeFile(
     if (err) throw err;
   }
 );
-console.log("index2.html created")
-
+console.log("index2.html created");
 
 fs.writeFile(
-  "./muhpackage/views/dexy.html",
+  "./nPoP/views/dexy.html",
   `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -243,49 +235,56 @@ fs.writeFile(
     if (err) throw err;
   }
 );
-console.log("dexy.html created")
+console.log("dexy.html created");
 
-
-
-fs.mkdir("./muhpackage/views/imgs", { recursive: true }, (err) => {
+fs.mkdir("./nPoP/views/imgs", { recursive: true }, (err) => {
   if (err) throw err;
 });
-console.log("images folder created")
+console.log("images folder created");
 
-exec("cd muhpackage/views/imgs && curl -o logo.png https://i.ibb.co/sWr5Tpb/logo.png", (error, data) => {
-	if(error){
-		console.log("error",error.message);
-		return;
-	}
+exec(
+  "cd ./nPoP/views/imgs && curl -o logo.png https://i.ibb.co/sWr5Tpb/logo.png",
+  (error, data) => {
+    if (error) {
+      console.log("error", error.message);
+      return;
+    }
 
-		console.log(data);
+    console.log(data);
 
-  console.log("cuuuuuuuuuuuuuuurl")
-});
+    console.log("cuuuuuuuuuuuuuuurl");
+  }
+);
 
-exec("cd muhpackage/views/styles && echo making it stlyeish", (error, data) => {
-	if(error){
-		console.log("error",error.message);
-		return;
-	}
-  console.log("cd")
-		console.log(data);
-});
+exec(
+  "cd ./nPoP/views/styles && echo making it stlyeish",
+  (error, data) => {
+    if (error) {
+      console.log("error", error.message);
+      return;
+    }
+    console.log("cd");
+    console.log(data);
+  }
+);
 
-fs.mkdir("./muhpackage/views/styles", { recursive: true }, (err) => {
+fs.mkdir("./nPoP/views/styles", { recursive: true }, (err) => {
   if (err) throw err;
 });
-exec("cd muhpackage/views/styles && echo went to style folder", (error, data) => {
-	if(error){
-		console.log("error",error.message);
-		return;
-	}
-  console.log("cd")
-		console.log(data);
-});
+exec(
+  "cd ./nPoP/views/styles && echo went to style folder",
+  (error, data) => {
+    if (error) {
+      console.log("error", error.message);
+      return;
+    }
+    console.log("cd");
+    console.log(data);
+  }
+);
 
 fs.writeFile(
-  "./muhpackage/views/styles/style.css",
+  "./nPoP/views/styles/style.css",
   `  * {margin:0; padding: 0; color:red;}
   #ss{
     text-align: center;
@@ -322,33 +321,32 @@ fs.writeFile(
     if (err) throw err;
   }
 );
-console.log("style.css created")
+console.log("style.css created");
 
-exec("cd muhpackage/views && echo making JavaScript", (error, data) => {
-	if(error){
-		console.log("error",error.message);
-		return;
-	}
-  console.log("makeing js folder")
-		console.log(data);
-})
+exec("cd ./nPoP/views && echo making JavaScript", (error, data) => {
+  if (error) {
+    console.log("error", error.message);
+    return;
+  }
+  console.log("makeing js folder");
+  console.log(data);
+});
 
-fs.mkdir("./muhpackage/views/js", { recursive: true }, (err) => {
+fs.mkdir("./nPoP/views/js", { recursive: true }, (err) => {
   if (err) throw err;
 });
 
-exec("cd muhpackage/views/js && echo making JavaScript2", (error, data) => {
-	if(error){
-		console.log("error",error.message);
-		return;
-	}
-  console.log("makeing js file")
-		console.log(data);
-})
-
+exec("cd ./nPoP/views/js && echo making JavaScript2", (error, data) => {
+  if (error) {
+    console.log("error", error.message);
+    return;
+  }
+  console.log("makeing js file");
+  console.log(data);
+});
 
 fs.writeFile(
-  "./muhpackage/views/js/dvd.js",
+  "./nPoP/views/js/dvd.js",
   `// stolen from https://github.com/AlessioMaddaluno/bouncing-dvd-logo
 
   let speed = 20;
@@ -421,48 +419,50 @@ fs.writeFile(
     if (err) throw err;
   }
 );
-console.log("js homepage made")
+console.log("js homepage made");
 
-exec("git init && echo initted git", (error, data) => {
-  if(error){
-    console.log("error",error.message);
+exec("cd ./nPop && git init", (error, data) => {
+  if (error) {
+    console.log("error", error.message);
     return;
   }
-
-    console.log(data);
-console.log("opening default code editor")
-    
-
+  console.log(data);
+  console.log("opening default code editor");
 });
 
+exec("echo git initted", (error, data) => {
+  if (error) {
+    console.log("error", error.message);
+    return;
+  }
+  console.log(data);
+  console.log("opening default code editor");
+});
 
 const donus = function () {
-exec("cd ./muhpackage && npm run pop", (error, data) => {
-	if(error){
-		console.log("error",error.message);
-		return;
-	}
-  console.log("pop script starting")
-
-		console.log(data);
-
-    
-
-});}
-const doonus = function () {
-  exec("cd ./muhpackage && code .", (error, data) => {
-    if(error){
-      console.log("error",error.message);
+  exec("cd ./nPoP && npm run pop", (error, data) => {
+    if (error) {
+      console.log("error", error.message);
       return;
     }
-  
-      console.log(data);
-  console.log("opening default code editor")
-      
-  
-  });}
+    console.log("pop script starting");
+
+    console.log(data);
+  });
+};
+const doonus = function () {
+  exec("cd ./nPoP && code .", (error, data) => {
+    if (error) {
+      console.log("error", error.message);
+      return;
+    }
+
+    console.log(data);
+    console.log("opening default code editor");
+  });
+};
 
 setTimeout(() => {
-donus()  
-doonus()
+  donus();
+  doonus();
 }, 10000);
